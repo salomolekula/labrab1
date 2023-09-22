@@ -2,11 +2,120 @@
 //
 
 #include <iostream>
+#include <vector>
+#include <string>
+
+/*
+ 
+ C                 ----                C++
+ (Defined in header <string.h>) - (Defined in header <cstring>)
+ strlen - strlen -  возвращает длину строки
+
+ strcpy - strcpy - копирует содержимое одной строки в другую.
+
+ strcmp - std::strcmp - сравнивает две строки и возвращает результат сравнения.
+
+ strcat - strcat - объединяет две строки путем добавления содержимого одной строки в конец другой.
+
+  someString[index] - в C++ можно получить символ строки по индексу, используя оператор [].
+
+  strcat как сверху - push_back добавляет символ в конец строки.
+
+  замена через размер строки последнего символа на "\0" - pop_back
+
+  Главная разница между строками в C и C++ заключается в том, что в C строки представлены как массивы символов,
+  а в C++ есть специальный класс string, который предоставляет удобные методы для работы со строками.
+  Строки в C++ могут быть динамическими и иметь переменную длину, в отличие от строк в C, которые имеют фиксированную длину.
+  Класс string также обеспечивает автоматическое управление памятью для строк, что делает работу с ними более безопасной и удобной.
+
+
+
+  int *ptr = (int*)malloc(sizeof(int)) - int *ptr = new int;
+  int *ptrArr = (int*)malloc(sizeof(int)*N) - int *ptrArr = new int[N];
+  free(ptr) - delete ptr;
+  free(ptrArr) - delete[] ptrArr
+
+  Если вы забудете освободить выделенную память, это может привести к утечкам памяти,
+  когда память не будет доступна для последующего использования и будет занимать место в памяти.
+  Попытка освободить одну и ту же выделенную память дважды может привести к неопределенному поведению программы.
+  C++ не предоставляет прямых средств для освобождения "невыделенной" памяти. Попытка освободить такую
+  память также может вызвать ошибку во время выполнения или привести к неопределенным последствиям.
+ */
+
+void taskOneB();
+void taskTwo();
+
 
 int main()
 {
-    std::cout << "Hello World! \n";
+	std::cout << "Guten Tag! \n";
+
+	taskOneB();
+
+	taskTwo();
+	return 0;
 }
+
+void taskOneB()
+{
+	std::string someString;
+
+	const std::string arrSorting{ "()`~!@#$%^&*-+=|\\{}[]:;\"'<>,.?/_…\n" };
+
+	bool isSort = true;
+
+	std::cout << "Введите строку для сортировки." << std::endl;
+	std::cin >> someString;
+	
+	std::string filtratedString = "";
+
+	for (auto iter{someString.begin()}; iter != someString.end(); iter++)
+	{
+		for (int i = 0; i < arrSorting.size(); i++)
+		{
+			if (*iter == arrSorting[i])
+			{
+				isSort = 0;
+				break;
+			}
+		}
+		if (isSort)
+		{
+			filtratedString += *iter;
+		}
+		isSort = true;
+	}
+	char lessLet = filtratedString[0];
+	char nowLet;
+	
+	for (int i = 0; i < filtratedString.size(); i++)
+	{
+		nowLet = filtratedString[i];
+
+		if (lessLet < nowLet)
+		{
+			lessLet = nowLet;
+		}
+	}
+
+	std::string endSortString = "";
+
+	for (auto i = lessLet; i < lessLet+66; i++)
+	{
+		for (int j = 0; j < filtratedString.size(); j++)
+		{
+			if (i == filtratedString[j])
+			{
+				endSortString += filtratedString[j];
+			}
+		}
+	}
+	std::cout << endSortString;
+}
+
+
+
+
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
