@@ -128,6 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="labrab1.cpp" />
+    <ClCompile Include="extraTask.cpp" />
+    <ClCompile Include="taskTwo.cpp" />
+    <ClCompile Include="taskOne.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="taskExtra.h" />
+    <ClInclude Include="taskTwo.h" />
+    <ClInclude Include="taskOne.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

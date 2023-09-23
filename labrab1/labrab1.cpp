@@ -2,8 +2,10 @@
 //
 
 #include <iostream>
-#include <vector>
-#include <string>
+#include "taskOne.h"
+#include "taskTwo.h"
+#include "taskExtra.h"
+
 
 /*
  
@@ -42,88 +44,18 @@
   память также может вызвать ошибку во время выполнения или привести к неопределенным последствиям.
  */
 
-void taskOneB();
-void taskTwo();
-
-
 int main()
 {
+	system("chcp 1251");
+	system("cls");
+	setlocale(LC_ALL, "rus");
+
 	std::cout << "Guten Tag! \n";
 
 	taskOneB();
 
 	taskTwo();
+
+	extraTask();
 	return 0;
 }
-
-void taskOneB()
-{
-	std::string someString;
-
-	const std::string arrSorting{ "()`~!@#$%^&*-+=|\\{}[]:;\"'<>,.?/_…\n" };
-
-	bool isSort = true;
-
-	std::cout << "Введите строку для сортировки." << std::endl;
-	std::cin >> someString;
-	
-	std::string filtratedString = "";
-
-	for (auto iter{someString.begin()}; iter != someString.end(); iter++)
-	{
-		for (int i = 0; i < arrSorting.size(); i++)
-		{
-			if (*iter == arrSorting[i])
-			{
-				isSort = 0;
-				break;
-			}
-		}
-		if (isSort)
-		{
-			filtratedString += *iter;
-		}
-		isSort = true;
-	}
-	char lessLet = filtratedString[0];
-	char nowLet;
-	
-	for (int i = 0; i < filtratedString.size(); i++)
-	{
-		nowLet = filtratedString[i];
-
-		if (lessLet < nowLet)
-		{
-			lessLet = nowLet;
-		}
-	}
-
-	std::string endSortString = "";
-
-	for (auto i = lessLet; i < lessLet+66; i++)
-	{
-		for (int j = 0; j < filtratedString.size(); j++)
-		{
-			if (i == filtratedString[j])
-			{
-				endSortString += filtratedString[j];
-			}
-		}
-	}
-	std::cout << endSortString;
-}
-
-
-
-
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
