@@ -55,7 +55,7 @@ void taskOneB()
 //	std::cout << endSortString;
 // это второй, более интересный со стороны логики с++, но, из-за ососбенностей разных копил€торов, не универсальный код.
 // ”добнее реализовать эту идею можно с помощью кодировки UTF-8 и библиотеки <codecvt>.
-		// —ложность алгоритма ќ(N)
+// —ложность алгоритма ќ(N)
 	}
 
 	std::string alphabet = "абвгдеЄжзийклмнопрстуфхцчшщъыьэю€јЅ¬√ƒ≈®∆«»… ЋћЌќѕ–—“”‘’÷„ЎўЏџ№ЁёяabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
@@ -71,5 +71,5 @@ void taskOneB()
 			}
 		}
 	}
-	std::cout << endSortString;
+	std::cout << endSortString << std::endl;
 }
